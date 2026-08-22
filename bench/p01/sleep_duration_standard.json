@@ -1,0 +1,27 @@
+{
+  "case_id": "SLEEP_P02_001",
+  "name": "总睡眠时长-标准表达",
+  "model_input": {
+    "query": "我昨晚睡了多久？",
+    "query_context_date": "2026-05-07",
+    "page_context": "sleep_report",
+    "response_depth": "coach"
+  },
+  "expected_routing": {
+    "module": "sleep",
+    "task": "personal_data_lookup",
+    "prototype": "P02",
+    "intent": "time_duration_lookup",
+    "answerability": "answer"
+  },
+  "expected_parameters": {
+    "metric": "total_sleep_duration"
+  },
+  "expected_retrieval": {
+    "metric": "total_sleep_duration",
+    "metric_family": "overall_duration",
+    "default_companions": ["bedtime_start", "bedtime_end"]
+  },
+  "rubric_files": ["config/rubrics/p02_time_duration.json"],
+  "product_decision_refs": ["PD-01", "PD-04", "PD-05", "PD-06"]
+}

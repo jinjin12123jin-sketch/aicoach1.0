@@ -1,0 +1,25 @@
+{
+  "case_id": "SLEEP_P02_005",
+  "name": "醒来时间-标准表达",
+  "model_input": {
+    "query": "我今天几点醒的？",
+    "query_context_date": "2026-05-07",
+    "page_context": "sleep_report",
+    "response_depth": "coach"
+  },
+  "expected_routing": {
+    "module": "sleep",
+    "task": "personal_data_lookup",
+    "prototype": "P02",
+    "intent": "time_duration_lookup",
+    "answerability": "answer"
+  },
+  "expected_parameters": {"metric": "bedtime_end"},
+  "expected_retrieval": {
+    "metric": "bedtime_end",
+    "metric_family": "sleep_boundary",
+    "default_companions": ["total_sleep_duration", "bedtime_start"]
+  },
+  "rubric_files": ["config/rubrics/p02_time_duration.json"],
+  "product_decision_refs": ["PD-01", "PD-04", "PD-05", "PD-06"]
+}

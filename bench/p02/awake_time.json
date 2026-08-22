@@ -1,0 +1,25 @@
+{
+  "case_id": "SLEEP_P02_007",
+  "name": "清醒时长-标准表达",
+  "model_input": {
+    "query": "我昨晚清醒时间是多少？",
+    "query_context_date": "2026-05-07",
+    "page_context": "sleep_report",
+    "response_depth": "coach"
+  },
+  "expected_routing": {
+    "module": "sleep",
+    "task": "personal_data_lookup",
+    "prototype": "P02",
+    "intent": "time_duration_lookup",
+    "answerability": "answer"
+  },
+  "expected_parameters": {"metric": "awake_time"},
+  "expected_retrieval": {
+    "metric": "awake_time",
+    "metric_family": "continuity_duration",
+    "default_companions": ["target_baseline_comparison"]
+  },
+  "rubric_files": ["config/rubrics/p02_time_duration.json"],
+  "product_decision_refs": ["PD-01", "PD-02", "PD-04", "PD-05", "PD-06"]
+}

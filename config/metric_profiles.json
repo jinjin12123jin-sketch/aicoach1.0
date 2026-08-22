@@ -1,0 +1,96 @@
+{
+  "version": "0.1",
+  "prototype": "P02",
+  "baseline_sessions": 7,
+  "minimum_baseline_sessions": 4,
+  "families": {
+    "sleep_boundary": {
+      "name": "睡眠边界",
+      "description": "回答入睡或醒来时间，并补齐同一主睡眠的另一个边界和总睡眠时长。"
+    },
+    "overall_duration": {
+      "name": "总体时长",
+      "description": "回答总睡眠或卧床时长，并补齐睡眠区间或实际睡眠差异。"
+    },
+    "sleep_stage": {
+      "name": "睡眠阶段",
+      "description": "回答深睡或REM时长，并补充其占总睡眠的比例。"
+    },
+    "continuity_duration": {
+      "name": "连续性相关时长",
+      "description": "回答清醒时长或入睡潜伏期，并在历史充分时补充个人比较。"
+    }
+  },
+  "metrics": {
+    "bedtime_start": {
+      "family": "sleep_boundary",
+      "default_companions": ["bedtime_end", "total_sleep_duration"],
+      "candidate_relationships": ["schedule_vs_baseline", "schedule_explains_duration"],
+      "comparison_mode": "clock_minutes",
+      "minimum_noticeable_change": 30,
+      "noticeable_change_unit": "minutes",
+      "measurement_qualifier": "device_estimate"
+    },
+    "bedtime_end": {
+      "family": "sleep_boundary",
+      "default_companions": ["total_sleep_duration", "bedtime_start"],
+      "candidate_relationships": ["schedule_vs_baseline", "schedule_explains_duration"],
+      "comparison_mode": "clock_minutes",
+      "minimum_noticeable_change": 30,
+      "noticeable_change_unit": "minutes",
+      "measurement_qualifier": "device_estimate"
+    },
+    "total_sleep_duration": {
+      "family": "overall_duration",
+      "default_companions": ["bedtime_start", "bedtime_end"],
+      "candidate_relationships": ["duration_vs_baseline", "schedule_explains_duration", "duration_and_continuity"],
+      "comparison_mode": "duration_minutes",
+      "minimum_noticeable_change": 30,
+      "noticeable_change_unit": "minutes"
+    },
+    "time_in_bed": {
+      "family": "overall_duration",
+      "default_companions": ["total_sleep_duration", "non_sleep_gap"],
+      "candidate_relationships": ["duration_vs_baseline"],
+      "comparison_mode": "duration_minutes",
+      "minimum_noticeable_change": 30,
+      "noticeable_change_unit": "minutes"
+    },
+    "deep_sleep_duration": {
+      "family": "sleep_stage",
+      "default_companions": ["deep_sleep_share"],
+      "candidate_relationships": ["stage_vs_baseline", "stage_change_follows_total_sleep"],
+      "comparison_mode": "duration_minutes",
+      "minimum_noticeable_change": 20,
+      "noticeable_change_unit": "minutes",
+      "measurement_qualifier": "device_recorded"
+    },
+    "rem_sleep_duration": {
+      "family": "sleep_stage",
+      "default_companions": ["rem_sleep_share"],
+      "candidate_relationships": ["stage_vs_baseline", "stage_change_follows_total_sleep"],
+      "comparison_mode": "duration_minutes",
+      "minimum_noticeable_change": 20,
+      "noticeable_change_unit": "minutes",
+      "measurement_qualifier": "device_recorded"
+    },
+    "awake_time": {
+      "family": "continuity_duration",
+      "default_companions": ["target_baseline_comparison"],
+      "candidate_relationships": ["continuity_vs_baseline", "awake_and_efficiency_move_together"],
+      "comparison_mode": "duration_minutes",
+      "minimum_noticeable_change": 15,
+      "noticeable_change_unit": "minutes",
+      "measurement_qualifier": "device_recorded"
+    },
+    "latency": {
+      "family": "continuity_duration",
+      "default_companions": ["target_baseline_comparison"],
+      "candidate_relationships": ["continuity_vs_baseline"],
+      "comparison_mode": "duration_minutes",
+      "minimum_noticeable_change": 15,
+      "noticeable_change_unit": "minutes",
+      "measurement_qualifier": "device_estimate"
+    }
+  }
+}

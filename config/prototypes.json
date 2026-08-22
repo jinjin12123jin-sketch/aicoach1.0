@@ -1,0 +1,100 @@
+[
+  {
+    "id": "P01",
+    "name": "单项数据查询",
+    "task": "personal_data_lookup",
+    "intent": "single_metric_lookup",
+    "description": "查询某一时间窗内某个非时长型睡眠指标的具体值。",
+    "supported_metrics": ["efficiency", "average_heart_rate", "lowest_heart_rate", "average_hrv", "average_breath"],
+    "examples": [
+      {"query": "我昨晚睡眠效率是多少？", "parameters": {"metric": "efficiency"}},
+      {"query": "昨晚HRV是多少？", "parameters": {"metric": "average_hrv"}}
+    ]
+  },
+  {
+    "id": "P02",
+    "name": "时间点与时长查询",
+    "task": "personal_data_lookup",
+    "intent": "time_duration_lookup",
+    "description": "查询入睡、醒来时间或总睡眠、阶段、清醒等持续时长。",
+    "supported_metrics": ["bedtime_start", "bedtime_end", "total_sleep_duration", "time_in_bed", "deep_sleep_duration", "rem_sleep_duration", "awake_time", "latency"],
+    "examples": [
+      {"query": "我昨晚几点睡着的？", "parameters": {"metric": "bedtime_start"}},
+      {"query": "我昨晚睡了多久？", "parameters": {"metric": "total_sleep_duration"}},
+      {"query": "昨晚深睡了多久？", "parameters": {"metric": "deep_sleep_duration"}}
+    ]
+  },
+  {
+    "id": "P05",
+    "name": "多指标日/夜汇总",
+    "task": "personal_data_interpretation",
+    "intent": "multi_metric_night_summary",
+    "description": "用少量关键事实概括昨晚整体睡眠数据，不主动解释原因。",
+    "supported_metrics": [],
+    "examples": [
+      {"query": "我昨晚睡得怎么样？", "parameters": {}},
+      {"query": "把昨晚睡眠数据总结一下。", "parameters": {}}
+    ]
+  },
+  {
+    "id": "P07",
+    "name": "指标概念解释",
+    "task": "health_education",
+    "intent": "sleep_metric_education",
+    "description": "解释与睡眠数据相关的指标、阶段和缩写，说明用途与设备限制。",
+    "supported_terms": ["rem_sleep", "deep_sleep", "light_sleep", "sleep_efficiency", "total_sleep_duration", "time_in_bed", "sleep_latency", "awake_time", "hrv", "sleep_heart_rate", "sleep_respiratory_rate"],
+    "examples": [
+      {"query": "REM是什么？", "parameters": {"term": "rem_sleep"}},
+      {"query": "深度睡眠是什么意思？", "parameters": {"term": "deep_sleep"}},
+      {"query": "睡眠效率是什么？", "parameters": {"term": "sleep_efficiency"}},
+      {"query": "HRV是什么意思？", "parameters": {"term": "hrv"}}
+    ]
+  },
+  {
+    "id": "P11",
+    "name": "周期趋势比较",
+    "task": "personal_data_trend",
+    "intent": "period_trend_comparison",
+    "description": "比较最近与此前两个同口径睡眠时间窗的变化。",
+    "supported_metrics": ["total_sleep_duration", "deep_sleep_duration", "rem_sleep_duration", "awake_time", "efficiency", "average_heart_rate", "lowest_heart_rate", "average_hrv", "average_breath"],
+    "examples": [
+      {"query": "最近一周比之前睡得更久吗？", "parameters": {"metric": "total_sleep_duration", "window_sessions": 7}},
+      {"query": "最近HRV趋势怎么样？", "parameters": {"metric": "average_hrv", "window_sessions": 7}}
+    ]
+  },
+  {
+    "id": "P12",
+    "name": "个人基线偏离判断",
+    "task": "personal_data_trend",
+    "intent": "personal_baseline_deviation",
+    "description": "判断单晚某项指标相对个人近期基线的方向和幅度。",
+    "supported_metrics": ["total_sleep_duration", "deep_sleep_duration", "rem_sleep_duration", "awake_time", "efficiency", "average_heart_rate", "lowest_heart_rate", "average_hrv", "average_breath"],
+    "examples": [
+      {"query": "昨晚HRV比平时低吗？", "parameters": {"metric": "average_hrv"}},
+      {"query": "我昨晚比平时睡得久吗？", "parameters": {"metric": "total_sleep_duration"}}
+    ]
+  },
+  {
+    "id": "P14",
+    "name": "睡眠同域综合分析",
+    "task": "personal_data_interpretation",
+    "intent": "sleep_domain_analysis",
+    "description": "综合睡眠时长、连续性、阶段和夜间生理数据形成谨慎解释。",
+    "supported_metrics": [],
+    "examples": [
+      {"query": "为什么昨晚睡得不够好？", "parameters": {}},
+      {"query": "为什么我睡够了还是觉得累？", "parameters": {}}
+    ]
+  },
+  {
+    "id": "P25",
+    "name": "风险症状识别与就医分流",
+    "task": "emergency",
+    "intent": "emergency_risk_triage",
+    "description": "对潜在紧急风险给出最短、明确的就医或急救分流。",
+    "supported_metrics": [],
+    "examples": [
+      {"query": "我胸口痛而且喘不上气。", "parameters": {}}
+    ]
+  }
+]

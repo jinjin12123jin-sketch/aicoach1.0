@@ -1,0 +1,44 @@
+[
+  {
+    "id": "PD-01",
+    "topic": "“昨晚”主睡眠口径",
+    "status": "provisional",
+    "current_rule": "暂取 query_context_date 当天醒来的 long_sleep",
+    "needs_review": "后续由产品/算法确认主睡眠识别和跨日归属"
+  },
+  {
+    "id": "PD-02",
+    "topic": "个人基线窗口",
+    "status": "provisional",
+    "current_rule": "暂取此前最近7个 long_sleep 均值",
+    "needs_review": "7/14/28日、异常日剔除、最少有效天数"
+  },
+  {
+    "id": "PD-03",
+    "topic": "“睡得怎么样”的整体判断",
+    "status": "provisional",
+    "current_rule": "不写死医学阈值；让 LLM 基于个人基线做谨慎的主次总结",
+    "needs_review": "后续是否融合睡眠评分/算法标签/医学规则"
+  },
+  {
+    "id": "PD-04",
+    "topic": "P02默认信息包",
+    "status": "provisional",
+    "current_rule": "按睡眠边界、总体时长、睡眠阶段、连续性四个指标族补齐最小完整信息；不按每种用户措辞维护固定答案",
+    "needs_review": "通过ToC测试验证不同页面、语音和通知场景下的默认长度"
+  },
+  {
+    "id": "PD-05",
+    "topic": "P02个人变化展示门槛",
+    "status": "provisional",
+    "current_rule": "同时使用产品最低展示门槛和个人历史噪声范围过滤候选；门槛仅表示值得展示，不代表医学异常",
+    "needs_review": "结合真实数据分布、用户研究和更多有效夜晚校准阈值"
+  },
+  {
+    "id": "PD-06",
+    "topic": "P02自然语言生成职责",
+    "status": "provisional",
+    "current_rule": "程序生成结构化事实、默认信息包和受控候选关系，最终整段用户回答由LLM生成并接受确定性校验",
+    "needs_review": "通过Bad Case和A/B测试确认LLM候选选择稳定性；必要时进一步收紧选择权"
+  }
+]

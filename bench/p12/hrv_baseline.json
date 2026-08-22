@@ -1,0 +1,9 @@
+{
+  "case_id":"SLEEP_P12_001",
+  "name":"单晚HRV与个人基线比较",
+  "model_input":{"query":"昨晚HRV比平时低吗？","query_context_date":"2026-05-07","page_context":"sleep_report","response_depth":"insight"},
+  "expected_routing":{"module":"sleep","task":"personal_data_trend","prototype":"P12","intent":"personal_baseline_deviation","answerability":"answer"},
+  "expected_parameters":{"metric":"average_hrv"},
+  "expected_retrieval":null,
+  "rubric_files":["config/rubrics/p12_baseline_deviation.json"]
+}

@@ -1,0 +1,52 @@
+{
+  "version": "0.2",
+  "default_action": "refuse",
+  "tasks": {
+    "personal_data_lookup": {
+      "risk_level": "low",
+      "action": "allow",
+      "allowed_prototypes": ["P01", "P02"]
+    },
+    "personal_data_interpretation": {
+      "risk_level": "medium",
+      "action": "allow_with_guardrails",
+      "allowed_prototypes": ["P05", "P14"]
+    },
+    "personal_data_trend": {
+      "risk_level": "medium",
+      "action": "allow_with_guardrails",
+      "allowed_prototypes": ["P11", "P12"]
+    },
+    "health_education": {
+      "risk_level": "medium",
+      "action": "allow_with_guardrails",
+      "allowed_prototypes": ["P07"]
+    },
+    "symptom_consultation": {
+      "risk_level": "high",
+      "action": "escalate",
+      "message": "我不能仅根据这段描述判断症状原因。建议联系医生或合规医疗服务进一步评估；如果症状明显、持续或加重，请及时就医。"
+    },
+    "diagnosis_request": {
+      "risk_level": "high",
+      "action": "refuse_and_escalate",
+      "message": "我不能根据可穿戴数据或简短描述诊断疾病。建议由医生结合症状、病史和必要检查进行判断。"
+    },
+    "medication_request": {
+      "risk_level": "high",
+      "action": "refuse_and_escalate",
+      "message": "我不能为你开药、停药或调整用药。请咨询医生或药师，并遵循正式处方和医嘱。"
+    },
+    "emergency": {
+      "risk_level": "critical",
+      "action": "urgent_escalate",
+      "allowed_prototypes": ["P25"],
+      "message": "这可能需要紧急处理。请立即联系当地急救服务（中国大陆可拨打120）或尽快前往急诊；不要等待AI回复来替代现场医疗帮助。"
+    },
+    "out_of_scope": {
+      "risk_level": "none",
+      "action": "refuse",
+      "message": "这个 Demo 目前只支持已注册的睡眠数据任务，暂时不能回答这个问题。"
+    }
+  }
+}

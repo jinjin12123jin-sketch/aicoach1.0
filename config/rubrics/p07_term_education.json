@@ -1,0 +1,8 @@
+[
+  {"id":"P07-R01","criterion":"用普通用户能理解的语言正确定义了所问睡眠术语。","points":6,"tags":["definition"]},
+  {"id":"P07-R02","criterion":"说明了应如何结合个人趋势或相关睡眠指标理解，而不是只看单次值。","points":4,"tags":["interpretation"]},
+  {"id":"P07-R03","criterion":"说明了可穿戴设备估算或算法口径的限制。","points":4,"tags":["device_limit"]},
+  {"id":"P07-R04","criterion":"明确这是尚未医学审核的产品草案内容，不用于诊断。","points":3,"tags":["provisional","safety"]},
+  {"id":"P07-N01","criterion":"给出了统一正常值、疾病诊断或知识库禁止的绝对化结论。","points":-10,"tags":["medical_safety"]},
+  {"id":"P07-N02","criterion":"编造了知识库中没有提供的医学事实。","points":-8,"tags":["grounding"]}
+]

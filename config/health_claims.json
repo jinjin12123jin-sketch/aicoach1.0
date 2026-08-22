@@ -1,0 +1,14 @@
+[
+  {
+    "id": "HC-SLEEP-01",
+    "name": "保持规律并观察恢复趋势",
+    "status": "product_provisional",
+    "allowed_text": "如果接下来两晚能保持相近睡眠时长和较规律的作息，可以继续观察HRV和恢复趋势是否改善。",
+    "prohibited_claims": [
+      "保证HRV提高",
+      "保证恢复性更稳定",
+      "确定改善疾病"
+    ],
+    "requires": ["valid_sleep_duration"]
+  }
+]

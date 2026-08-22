@@ -1,0 +1,9 @@
+{
+  "case_id":"SLEEP_P07_001",
+  "name":"REM睡眠概念解释",
+  "model_input":{"query":"REM睡眠是什么意思？","query_context_date":"2026-05-07","page_context":"sleep_report","response_depth":"brief"},
+  "expected_routing":{"module":"sleep","task":"health_education","prototype":"P07","intent":"sleep_metric_education","answerability":"answer"},
+  "expected_parameters":{"term":"rem_sleep"},
+  "expected_retrieval":{"term_id":"rem_sleep"},
+  "rubric_files":["config/rubrics/p07_term_education.json"]
+}

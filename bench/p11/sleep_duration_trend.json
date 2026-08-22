@@ -1,0 +1,9 @@
+{
+  "case_id":"SLEEP_P11_001",
+  "name":"最近与此前睡眠时长趋势",
+  "model_input":{"query":"最近7次比之前睡得更久吗？","query_context_date":"2026-05-07","page_context":"sleep_report","response_depth":"insight"},
+  "expected_routing":{"module":"sleep","task":"personal_data_trend","prototype":"P11","intent":"period_trend_comparison","answerability":"answer"},
+  "expected_parameters":{"metric":"total_sleep_duration","window_sessions":7},
+  "expected_retrieval":null,
+  "rubric_files":["config/rubrics/p11_period_trend.json"]
+}

@@ -1,0 +1,9 @@
+{
+  "case_id":"SLEEP_P14_001",
+  "name":"单晚睡眠同域解释",
+  "model_input":{"query":"为什么我昨晚睡得不够好？","query_context_date":"2026-05-07","page_context":"sleep_report","response_depth":"insight"},
+  "expected_routing":{"module":"sleep","task":"personal_data_interpretation","prototype":"P14","intent":"sleep_domain_analysis","answerability":"answer"},
+  "expected_parameters":{},
+  "expected_retrieval":null,
+  "rubric_files":["config/rubrics/p14_sleep_domain_analysis.json"]
+}

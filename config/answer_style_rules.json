@@ -1,0 +1,48 @@
+{
+  "version": "0.1",
+  "P02": {
+    "address_user_as": "你",
+    "tone": "自然、简洁、面向普通消费者，不写成数据报告",
+    "answer_query_first": true,
+    "include_default_companions": true,
+    "allow_no_insight": true,
+    "max_optional_insights_by_depth": {
+      "brief": 0,
+      "insight": 1,
+      "coach": 1
+    },
+    "avoid_preambles": [
+      "根据您的数据",
+      "根据你的数据",
+      "根据系统提供的数据",
+      "从记录来看",
+      "关于你的问题"
+    ],
+    "hide_unless_asked": [
+      "具体年月日",
+      "原始数据未提供时区",
+      "source_session_id",
+      "内部字段名"
+    ],
+    "forbidden_claim_fragments": [
+      "诊断为失眠",
+      "说明你有失眠",
+      "保证HRV",
+      "一定会改善恢复",
+      "晚睡导致睡眠效率下降"
+    ],
+    "ungrounded_evaluation_fragments": [
+      "比较规律",
+      "还算规律",
+      "比较平稳",
+      "还算平稳",
+      "整体不错",
+      "睡得不错",
+      "属于正常",
+      "属于异常",
+      "已经达标",
+      "没有达标"
+    ],
+    "generation_retry_limit": 1
+  }
+}

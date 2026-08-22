@@ -1,0 +1,37 @@
+{
+  "version": "0.1",
+  "runtime_nodes": [
+    {"id":"input_context","title":"用户输入与上下文","category":"core","description":"接收用户问题、查询日期、页面场景和回答深度。","files":["app.py","backend/coach.py"]},
+    {"id":"safety_precheck","title":"确定性安全预检","category":"safety","description":"在调用模型前检查紧急风险、诊断和用药关键词。","files":["backend/policy_engine.py","config/answerability_rules.json"]},
+    {"id":"intent_router","title":"LLM意图路由与校验","category":"model","description":"让模型识别Task、Prototype和Parameters，并校验结构与注册表。","files":["backend/router.py","backend/prompts.py","backend/prototype_registry.py","config/prototypes.json","backend/model_adapter.py"]},
+    {"id":"policy_gate","title":"回答策略判断","category":"safety","description":"依据回答规则库决定允许、带护栏回答、拒答或升级。","files":["backend/policy_engine.py","config/answerability_rules.json"]},
+    {"id":"retrieval_dispatch","title":"检索分发","category":"core","description":"根据原型把任务分发到个人数据、术语知识或趋势计算。","files":["backend/retrieval.py","config/prototypes.json"]},
+    {"id":"personal_data","title":"个人睡眠数据","category":"data","description":"本机优先读取私有主睡眠记录，仓库环境回退到合成Demo数据；计算目标夜、个人基线和周期窗口。","files":["backend/data_service.py","data/normalized/sleep_sessions.csv","data/demo/synthetic_sleep_sessions.csv","config/product_decisions.json"]},
+    {"id":"knowledge_base","title":"P07睡眠术语库","category":"knowledge","description":"按标准术语和别名检索受控定义、设备限制和禁止结论。","files":["backend/knowledge_service.py","config/knowledge/sleep_terms.json"]},
+    {"id":"insight_engine","title":"洞察计算","category":"strategy","description":"计算个人变化显著性，并依据受控指标关系生成可追溯候选洞察。","files":["backend/insight_engine.py","config/health_claims.json","config/metric_relationships.json","config/metric_profiles.json"]},
+    {"id":"answer_planner","title":"回答内容规划","category":"strategy","description":"把必答事实、默认信息包、候选洞察和表达约束组装成Answer Plan，不生成最终文案。","files":["backend/answer_planner.py","config/metric_profiles.json","config/answer_style_rules.json"]},
+    {"id":"prompt_builder","title":"回答Prompt组装","category":"model","description":"按原型选择System Prompt；P02仅把结构化Answer Plan交给模型生成自然语言。","files":["backend/prompts.py","config/prototypes.json","config/answer_style_rules.json"]},
+    {"id":"llm_generation","title":"DeepSeek回答生成","category":"model","description":"调用OpenAI兼容接口生成最终自然语言回答。","files":["backend/model_adapter.py","backend/prompts.py"]},
+    {"id":"response_validator","title":"回答事实与边界校验","category":"safety","description":"校验P02必答数值、默认信息、禁止开场、内部元数据和越界结论；失败时触发一次受控重写。","files":["backend/response_validator.py","config/answer_style_rules.json","backend/prompts.py"]},
+    {"id":"final_response","title":"最终回答","category":"core","description":"返回用户回答并汇总本次完整调试链路。","files":["backend/coach.py"]},
+    {"id":"history_persistence","title":"运行历史保存","category":"data","description":"为每次成功运行生成Run ID并保存本地JSONL记录。","files":["backend/history_service.py","data/runs/history.jsonl"]}
+  ],
+  "evaluation_nodes": [
+    {"id":"eval_case","title":"选择Bench Case","category":"evaluation","description":"读取测试问题、Expected Routing、Expected Retrieval和Rubric配置。","files":["backend/evaluator.py","bench/**/*.json"]},
+    {"id":"eval_compatibility","title":"Case兼容性检查","category":"evaluation","description":"确认当前回答与Case的日期、原型、意图和参数兼容。","files":["app.py","backend/evaluator.py"]},
+    {"id":"eval_routing","title":"Routing与Retrieval评分","category":"evaluation","description":"比较期望路由、参数和实际检索结果。","files":["backend/evaluator.py"]},
+    {"id":"eval_judge","title":"Rubric Judge","category":"model","description":"逐条调用Judge判断回答是否满足评分标准。","files":["backend/evaluator.py","backend/prompts.py","config/rubrics/*.json"]},
+    {"id":"eval_summary","title":"评分汇总","category":"evaluation","description":"汇总Routing、Retrieval、Response得分和Bad Case解释。","files":["backend/evaluator.py"]}
+  ],
+  "catalog": [
+    {"id":"interface","title":"界面与编排","files":["app.py","ui/**/*.py","backend/coach.py"]},
+    {"id":"safety","title":"安全与回答策略","files":["backend/policy_engine.py","backend/response_validator.py","config/answerability_rules.json","config/health_claims.json","config/answer_style_rules.json"]},
+    {"id":"routing","title":"路由与原型","files":["backend/router.py","backend/prototype_registry.py","backend/prompts.py","config/prototypes.json"]},
+    {"id":"retrieval","title":"数据、知识与洞察","files":["backend/retrieval.py","backend/data_service.py","backend/knowledge_service.py","backend/insight_engine.py","backend/answer_planner.py","config/knowledge/*.json","config/product_decisions.json","config/metric_profiles.json","config/metric_relationships.json"]},
+    {"id":"model","title":"模型调用","files":["backend/model_adapter.py","backend/env.py"]},
+    {"id":"evaluation","title":"Evaluation","files":["backend/evaluator.py","scripts/*.py","bench/**/*.json","config/rubrics/*.json","config/p05_rubrics.json"]},
+    {"id":"history","title":"历史与数据","files":["backend/history_service.py","data/demo/*.csv","data/normalized/*.json","data/runs/*.jsonl"]},
+    {"id":"quality","title":"测试与依赖","files":["tests/**/*.py","requirements.txt"]},
+    {"id":"docs","title":"项目文档","files":["*.md","过程展示/*.md"]}
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "case_id": "SLEEP_P05_002",
+  "name": "单晚综合总结-口语表达",
+  "model_input": {
+    "query": "我昨晚睡睡得到底咋样啊？",
+    "query_context_date": "2026-05-07",
+    "page_context": "sleep_report",
+    "response_depth": "coach"
+  },
+  "expected_routing": {
+    "module": "sleep",
+    "task": "personal_data_interpretation",
+    "prototype": "P05",
+    "intent": "multi_metric_night_summary",
+    "answerability": "answer"
+  },
+  "expected_parameters": {},
+  "expected_retrieval": {
+    "night_fields": [
+      "total_sleep_duration",
+      "deep_sleep_duration",
+      "rem_sleep_duration",
+      "awake_time",
+      "efficiency",
+      "average_heart_rate",
+      "lowest_heart_rate",
+      "average_hrv",
+      "average_breath"
+    ],
+    "baseline": "previous_7_valid_long_sleep_sessions"
+  },
+  "rubric_files": ["config/p05_rubrics.json"],
+  "product_decision_refs": ["PD-01", "PD-02", "PD-03"]
+}

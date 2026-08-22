@@ -1,0 +1,148 @@
+{
+  "version": "0.1-provisional",
+  "review_status": "product_draft_not_medically_approved",
+  "global_notice": "以下内容用于帮助理解可穿戴设备中的睡眠指标，不用于诊断疾病；不同设备的算法和口径可能不同。",
+  "terms": [
+    {
+      "id": "rem_sleep",
+      "term": "REM睡眠",
+      "aliases": ["rem", "快速眼动睡眠", "快速眼动期"],
+      "plain_definition": "REM是快速眼动睡眠。这个阶段眼球会快速运动，脑活动较活跃，是整夜睡眠周期的一部分。",
+      "how_to_read": "更适合结合你自己的多晚趋势、总睡眠时间和设备记录完整性一起看，不建议只凭一晚的REM时长判断睡眠好坏。",
+      "device_limit": "可穿戴设备通常根据活动、心率等信号估算睡眠阶段，不能等同于包含脑电等信号的多导睡眠监测。",
+      "prohibited_claims": ["REM越多一定越好", "REM时长可以诊断某种疾病"],
+      "sources": [
+        {"title": "NHLBI - Sleep Phases and Stages", "url": "https://www.nhlbi.nih.gov/health/sleep/stages-of-sleep"},
+        {"title": "JCSM - Consumer sleep trackers vs polysomnography", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11874098/"}
+      ]
+    },
+    {
+      "id": "deep_sleep",
+      "term": "深睡眠",
+      "aliases": ["深睡", "深度睡眠", "n3", "慢波睡眠"],
+      "plain_definition": "深睡眠通常指非快速眼动睡眠的N3阶段，也叫慢波睡眠，往往在前半夜出现得更多。",
+      "how_to_read": "单晚深睡时长可能波动，建议优先看同一设备、相近测量条件下的个人趋势，并同时考虑总睡眠和清醒时长。",
+      "device_limit": "消费级可穿戴设备对具体睡眠阶段的结果属于算法估算，不宜当作临床睡眠分期。",
+      "prohibited_claims": ["深睡少就是失眠", "深睡达到固定比例才正常", "深睡越多一定越健康"],
+      "sources": [
+        {"title": "NHLBI - Sleep Phases and Stages", "url": "https://www.nhlbi.nih.gov/health/sleep/stages-of-sleep"},
+        {"title": "JCSM - Consumer sleep trackers vs polysomnography", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11874098/"}
+      ]
+    },
+    {
+      "id": "light_sleep",
+      "term": "浅睡眠",
+      "aliases": ["浅睡", "轻睡眠", "light sleep", "n1", "n2"],
+      "plain_definition": "消费级产品中的浅睡通常概括较浅的非快速眼动睡眠；在临床分期中，非快速眼动睡眠包含N1、N2和N3三个阶段。",
+      "how_to_read": "浅睡是正常睡眠结构的一部分，不应仅因为占比高就判断睡眠无效。",
+      "device_limit": "不同设备如何把N1、N2合并成浅睡可能不同，跨设备数值不宜直接比较。",
+      "prohibited_claims": ["浅睡没有恢复作用", "浅睡多一定代表睡眠障碍"],
+      "sources": [
+        {"title": "NHLBI - Sleep Phases and Stages", "url": "https://www.nhlbi.nih.gov/health/sleep/stages-of-sleep"},
+        {"title": "Systematic review of wearable sleep staging", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7956647/"}
+      ]
+    },
+    {
+      "id": "sleep_efficiency",
+      "term": "睡眠效率",
+      "aliases": ["效率", "睡眠有效率", "sleep efficiency"],
+      "plain_definition": "睡眠效率通常表示卧床期间真正睡着的时间占比，常见计算方式是总睡眠时间除以卧床时间再乘100%。",
+      "how_to_read": "它帮助描述入睡和维持睡眠是否连贯，但不同研究或设备对分母和睡眠区间的定义可能不同。",
+      "device_limit": "设备对入睡、醒来和短暂清醒的识别会影响睡眠效率，使用时应以本产品公开口径为准。",
+      "prohibited_claims": ["仅凭睡眠效率诊断失眠", "把不同设备的效率直接比较"],
+      "sources": [
+        {"title": "JCSM - Measuring Sleep Efficiency", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4751425/"},
+        {"title": "NCBI MedGen - Sleep Efficiency", "url": "https://www.ncbi.nlm.nih.gov/medgen/1669302"}
+      ]
+    },
+    {
+      "id": "total_sleep_duration",
+      "term": "总睡眠时长",
+      "aliases": ["总睡眠", "睡眠时长", "睡了多久", "total sleep time", "tst"],
+      "plain_definition": "总睡眠时长是一个睡眠区间内被记录为实际睡眠的累计时间，通常不包含其中被识别为清醒的时间。",
+      "how_to_read": "需要同时确认统计的是主睡眠、全天睡眠还是包含午睡，并结合数据覆盖范围理解。",
+      "device_limit": "可穿戴设备通过传感器和算法估算睡眠与清醒，结果可能与主观感受或睡眠实验室结果不同。",
+      "prohibited_claims": ["仅凭单晚时长判断睡眠质量", "将卧床时间等同总睡眠时间"],
+      "sources": [
+        {"title": "AHA Scientific Statement - Multidimensional Sleep Health", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12147655/"},
+        {"title": "JCSM - Consumer sleep trackers vs polysomnography", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11874098/"}
+      ]
+    },
+    {
+      "id": "time_in_bed",
+      "term": "卧床时间",
+      "aliases": ["在床时间", "卧床时长", "time in bed", "tib"],
+      "plain_definition": "卧床时间通常指上床到离床之间的时间范围，其中既可能包含睡眠，也可能包含入睡前或夜间清醒。",
+      "how_to_read": "卧床更久不等于实际睡得更久，需要与总睡眠时长和清醒时长一起看。",
+      "device_limit": "不同产品可能使用佩戴、动作或用户设置来确定上床和离床时间，口径可能不同。",
+      "prohibited_claims": ["把卧床时间直接写成睡眠时间"],
+      "sources": [
+        {"title": "JCSM - Measuring Sleep Efficiency", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4751425/"}
+      ]
+    },
+    {
+      "id": "sleep_latency",
+      "term": "入睡潜伏期",
+      "aliases": ["入睡时间", "入睡耗时", "多久睡着", "sleep latency", "sol"],
+      "plain_definition": "入睡潜伏期通常指开始尝试睡觉到被判定入睡之间的时间。",
+      "how_to_read": "需要结合用户何时真正开始尝试睡觉，而不只是何时上床；单晚较长也不能直接诊断失眠。",
+      "device_limit": "设备可能无法准确知道用户何时开始尝试睡觉，对入睡时点的估算也存在个体误差。",
+      "prohibited_claims": ["一次入睡慢就等于失眠", "根据设备估算精确判断入睡原因"],
+      "sources": [
+        {"title": "Survey on sleep assessment methods", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5971842/"},
+        {"title": "Systematic review of wearable sleep onset", "url": "https://pubmed.ncbi.nlm.nih.gov/31901524/"}
+      ]
+    },
+    {
+      "id": "awake_time",
+      "term": "睡后清醒时长",
+      "aliases": ["清醒时长", "夜间清醒", "waso", "wake after sleep onset"],
+      "plain_definition": "睡后清醒时长通常指第一次入睡后到最终醒来之间累计处于清醒状态的时间。",
+      "how_to_read": "它反映睡眠连续性的一部分，但清醒总时长和醒来次数不是同一个指标。",
+      "device_limit": "短暂清醒可能不被用户记住，也可能被设备漏记或误判，因此更适合观察个人趋势。",
+      "prohibited_claims": ["把清醒总时长换算成醒来次数", "仅凭该指标诊断睡眠障碍"],
+      "sources": [
+        {"title": "Survey on sleep assessment methods", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5971842/"},
+        {"title": "JCSM - Consumer sleep trackers vs polysomnography", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11874098/"}
+      ]
+    },
+    {
+      "id": "hrv",
+      "term": "心率变异性（HRV）",
+      "aliases": ["hrv", "心率变异", "心率变异度"],
+      "plain_definition": "HRV描述相邻心跳间隔随时间发生的细微变化，不是心率本身。它会受到自主神经调节、呼吸、测量条件等多种因素影响。",
+      "how_to_read": "HRV个体差异很大，更适合在同一设备和相近条件下与自己的长期水平比较，而不是只看单次高低或和别人比较。",
+      "device_limit": "许多消费级设备使用光学信号估算心跳间隔，运动、信号缺失和算法差异可能影响结果。",
+      "prohibited_claims": ["HRV低就是心脏病", "HRV越高一定越健康", "用单晚HRV诊断恢复或疾病"],
+      "sources": [
+        {"title": "Physiological basis and measurement of HRV", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5039876/"},
+        {"title": "Wearable HR and HRV review", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9695982/"}
+      ]
+    },
+    {
+      "id": "sleep_heart_rate",
+      "term": "睡眠心率",
+      "aliases": ["夜间心率", "睡眠平均心率", "最低心率", "average heart rate", "lowest heart rate"],
+      "plain_definition": "睡眠心率是睡眠记录期间的心率统计，可以是平均值、最低值或随时间变化的序列。",
+      "how_to_read": "应先确认问的是平均心率还是最低心率，并优先和个人在相近条件下的长期水平比较。",
+      "device_limit": "佩戴松紧、动作、皮肤接触和算法处理都可能影响光学心率数据；单个最低点尤其需要结合数据质量。",
+      "prohibited_claims": ["仅凭夜间心率诊断心脏疾病", "把最低心率当作整晚典型状态"],
+      "sources": [
+        {"title": "Wearable HR and HRV review", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9695982/"}
+      ]
+    },
+    {
+      "id": "sleep_respiratory_rate",
+      "term": "睡眠呼吸率",
+      "aliases": ["平均呼吸", "呼吸频率", "夜间呼吸率", "respiratory rate"],
+      "plain_definition": "睡眠呼吸率表示睡眠期间每分钟呼吸次数的估计值，产品可能展示整晚平均值或趋势。",
+      "how_to_read": "更适合观察同一设备下个人是否持续偏离平时水平；单晚变化需要结合测量质量和是否有不适。",
+      "device_limit": "消费级设备可能通过动作、光学或其他传感信号间接估算呼吸率，不能替代医疗呼吸监测。",
+      "prohibited_claims": ["仅凭呼吸率诊断睡眠呼吸暂停", "忽略呼吸困难等风险症状"],
+      "sources": [
+        {"title": "NHLBI - Sleep Phases and Stages", "url": "https://www.nhlbi.nih.gov/health/sleep/stages-of-sleep"},
+        {"title": "Systematic review of wearable sleep staging", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7956647/"}
+      ]
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "version": "0.1",
+  "relationships": {
+    "schedule_vs_baseline": {
+      "relation_type": "personal_comparison",
+      "evidence_strength": "medium",
+      "allowed_scope": "只描述当前入睡或醒来时间相对个人近期水平更早、更晚或接近。",
+      "forbidden_scope": ["判断医学正常异常", "套用统一人群作息标准"]
+    },
+    "duration_vs_baseline": {
+      "relation_type": "personal_comparison",
+      "evidence_strength": "medium",
+      "allowed_scope": "只描述当前时长相对个人近期水平更长、更短或接近。",
+      "forbidden_scope": ["判断是否睡够", "诊断失眠", "保证恢复改善"]
+    },
+    "schedule_explains_duration": {
+      "relation_type": "time_composition",
+      "evidence_strength": "high",
+      "allowed_scope": "当一个睡眠边界明显变化、另一个边界基本稳定且总睡眠同方向变化时，可说明睡眠时长变化主要出现在哪一段。",
+      "forbidden_scope": ["晚睡导致睡眠效率下降", "早醒的病因", "作息变化导致HRV或恢复分变化"]
+    },
+    "duration_and_continuity": {
+      "relation_type": "same_domain_cochange",
+      "evidence_strength": "medium",
+      "allowed_scope": "描述总睡眠和清醒时长或效率同时发生的变化，区分时长与连续性。",
+      "forbidden_scope": ["把共同变化写成病因", "诊断睡眠障碍"]
+    },
+    "stage_vs_baseline": {
+      "relation_type": "personal_comparison",
+      "evidence_strength": "medium",
+      "allowed_scope": "描述睡眠阶段时长相对个人近期水平的变化，并保留设备估计边界。",
+      "forbidden_scope": ["使用统一正常值判断", "根据单晚阶段时长诊断疾病或心理状态"]
+    },
+    "stage_change_follows_total_sleep": {
+      "relation_type": "part_whole_context",
+      "evidence_strength": "medium",
+      "allowed_scope": "当阶段时长变化但占总睡眠比例接近个人近期水平时，可说明时长变化主要伴随整晚总睡眠变化。",
+      "forbidden_scope": ["宣称睡眠结构一定改善或恶化", "医学因果判断"]
+    },
+    "continuity_vs_baseline": {
+      "relation_type": "personal_comparison",
+      "evidence_strength": "medium",
+      "allowed_scope": "描述清醒时长或入睡潜伏期相对个人近期水平的变化。",
+      "forbidden_scope": ["把清醒总时长换算成夜醒次数", "诊断入睡困难或失眠"]
+    },
+    "awake_and_efficiency_move_together": {
+      "relation_type": "same_domain_cochange",
+      "evidence_strength": "medium",
+      "allowed_scope": "描述清醒时长与睡眠效率同时变化，不断言其中一项造成另一项。",
+      "forbidden_scope": ["确定因果", "医学异常结论"]
+    }
+  }
+}

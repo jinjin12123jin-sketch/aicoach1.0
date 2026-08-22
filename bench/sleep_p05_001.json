@@ -1,0 +1,42 @@
+{
+  "case_id": "SLEEP_P05_001",
+  "name": "单晚综合总结-标准表达",
+  "model_input": {
+    "query": "我昨晚睡得怎么样？",
+    "query_context_date": "2026-05-07",
+    "page_context": "sleep_report",
+    "response_depth": "coach"
+  },
+  "expected_routing": {
+    "module": "sleep",
+    "task": "personal_data_interpretation",
+    "prototype": "P05",
+    "intent": "multi_metric_night_summary",
+    "answerability": "answer"
+  },
+  "expected_parameters": {},
+  "expected_retrieval": {
+    "night_fields": [
+      "total_sleep_duration",
+      "deep_sleep_duration",
+      "rem_sleep_duration",
+      "awake_time",
+      "efficiency",
+      "average_heart_rate",
+      "lowest_heart_rate",
+      "average_hrv",
+      "average_breath"
+    ],
+    "baseline": "previous_7_valid_long_sleep_sessions"
+  },
+  "evaluator_only": {
+    "ground_truth_file": "data/normalized/demo_ground_truth.json",
+    "reference_answer_note": "参考答案仅用于产品对齐，不要求候选模型复述；真正评分以 Rubric 为主。"
+  },
+  "rubric_files": ["config/p05_rubrics.json"],
+  "product_decision_refs": [
+    "PD-01",
+    "PD-02",
+    "PD-03"
+  ]
+}

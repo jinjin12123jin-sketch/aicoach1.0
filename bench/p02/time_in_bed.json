@@ -1,0 +1,25 @@
+{
+  "case_id": "SLEEP_P02_009",
+  "name": "卧床时长-标准表达",
+  "model_input": {
+    "query": "我昨晚在床上待了多久？",
+    "query_context_date": "2026-05-07",
+    "page_context": "sleep_report",
+    "response_depth": "coach"
+  },
+  "expected_routing": {
+    "module": "sleep",
+    "task": "personal_data_lookup",
+    "prototype": "P02",
+    "intent": "time_duration_lookup",
+    "answerability": "answer"
+  },
+  "expected_parameters": {"metric": "time_in_bed"},
+  "expected_retrieval": {
+    "metric": "time_in_bed",
+    "metric_family": "overall_duration",
+    "default_companions": ["total_sleep_duration", "non_sleep_gap"]
+  },
+  "rubric_files": ["config/rubrics/p02_time_duration.json"],
+  "product_decision_refs": ["PD-01", "PD-04", "PD-05", "PD-06"]
+}
